@@ -15,8 +15,4 @@ RUN sed -i 's/db:27017/interactor-db:27017/g' app.js
 RUN npm install
 RUN npm run build
 
-RUN rm /etc/localtime
-RUN ln -s /usr/share/zoneinfo/Europe/Luxembourg /etc/localtime
-RUN echo "Europe/Luxembourg" > /etc/timezone
-
 CMD ["npm","start"]

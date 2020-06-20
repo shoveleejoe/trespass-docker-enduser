@@ -15,7 +15,7 @@ RUN find . -delete
 
 RUN ls -la .
 
-RUN git clone https://github.com/hitandyrun/arguesecure-online.git .
+RUN git clone https://github.com/eriktews/arguesecure-online.git .
 
 RUN composer install
 
@@ -42,10 +42,6 @@ RUN chmod +x /init.sh
 RUN echo "" >> .env
 RUN echo "PROXY_URL = https://tp-arguesecure.itrust.lu" >> .env
 RUN echo "PROXY_SCHEMA = https" >> .env
-
-RUN rm /etc/localtime
-RUN ln -s /usr/share/zoneinfo/Europe/Luxembourg /etc/localtime
-RUN echo "Europe/Luxembourg" > /etc/timezone
 
 EXPOSE 80 
 EXPOSE 443 

@@ -40,10 +40,6 @@ RUN chmod 755 /initenv
 
 WORKDIR /usr/local/tomcat/webapps/
 
-RUN rm /etc/localtime
-RUN ln -s /usr/share/zoneinfo/Europe/Luxembourg /etc/localtime
-RUN echo "Europe/Luxembourg" > /etc/timezone
-
 EXPOSE 443
 
 ENTRYPOINT ["/initenv"]

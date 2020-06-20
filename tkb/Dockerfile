@@ -32,7 +32,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		xz-utils \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN echo 'deb http://httpredir.debian.org/debian jessie-backports main' > /etc/apt/sources.list.d/jessie-backports.list
+RUN echo 'Acquire::Check-Valid-Until no;' > /etc/apt/apt.conf.d/99no-check-valid-until
+RUN echo 'deb deb http://archive.debian.org/debian/ jessie-backports main contrib non-free' > etc/apt/sources.list.d/jessie-backports.list
 
 ENV LANG C.UTF-8
 
@@ -65,10 +66,6 @@ RUN /var/lib/dpkg/info/ca-certificates-java.postinst configure
 ADD manage.sh /manage.sh
 
 RUN mkdir /opt/svn
-
-RUN rm /etc/localtime
-RUN ln -s /usr/share/zoneinfo/Europe/Luxembourg /etc/localtime
-RUN echo "Europe/Luxembourg" > /etc/timezone
 
 VOLUME ["/opt/svn/"]
 

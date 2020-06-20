@@ -54,10 +54,6 @@ ADD ssl.conf /etc/apache2/mods-enabled/ssl.conf
 
 RUN sed -i "s#/var/www/html#/var/www#" /etc/apache2/sites-enabled/default-ssl.conf
 
-RUN rm /etc/localtime
-RUN ln -s /usr/share/zoneinfo/Europe/Luxembourg /etc/localtime
-RUN echo "Europe/Luxembourg" > /etc/timezone
-
 RUN echo "Listen 80" > /etc/apache2/ports.conf
 RUN echo "Listen 443" >> /etc/apache2/ports.conf
 

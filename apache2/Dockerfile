@@ -88,10 +88,6 @@ ADD mime.types /etc/mime.types
 
 ADD relocatesvn /relocatesvn
 
-RUN rm /etc/localtime
-RUN ln -s /usr/share/zoneinfo/Europe/Luxembourg /etc/localtime
-RUN echo "Europe/Luxembourg" > /etc/timezone
-
 EXPOSE 443
 
 VOLUME ["/var/log/apache2","/etc/php5/apache2/","/var/www/"]

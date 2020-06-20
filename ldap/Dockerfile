@@ -22,10 +22,6 @@ VOLUME ["/etc/ldap", "/var/lib/ldap"]
 
 RUN chmod +x /entrypoint.sh
 
-RUN rm /etc/localtime
-RUN ln -s /usr/share/zoneinfo/Europe/Luxembourg /etc/localtime
-RUN echo "Europe/Luxembourg" > /etc/timezone
-
 ENTRYPOINT ["/entrypoint.sh"]
 
 CMD ["slapd", "-d", "32768", "-u", "openldap", "-g", "openldap"]

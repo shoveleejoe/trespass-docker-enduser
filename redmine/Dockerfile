@@ -14,8 +14,4 @@ COPY init-sql.sh /init-sql.sh
 
 RUN chmod +x /init-sql.sh
 
-RUN rm /etc/localtime
-RUN ln -s /usr/share/zoneinfo/Europe/Luxembourg /etc/localtime
-RUN echo "Europe/Luxembourg" > /etc/timezone
-
 RUN bundle install
