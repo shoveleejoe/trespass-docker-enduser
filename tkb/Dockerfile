@@ -33,7 +33,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN echo 'Acquire::Check-Valid-Until no;' > /etc/apt/apt.conf.d/99no-check-valid-until
-RUN echo 'deb http://archive.debian.org/debian/ jessie-backports main contrib non-free' > etc/apt/sources.list.d/jessie-backports.list
+RUN echo 'deb http://archive.debian.org/debian/ jessie-backports main contrib non-free' > /etc/apt/sources.list.d/jessie-backports.list
 
 ENV LANG C.UTF-8
 
